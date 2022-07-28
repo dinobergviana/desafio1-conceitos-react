@@ -9,15 +9,15 @@ interface TodoProps {
 export function Todo({description}: TodoProps) {
   return (
     <div className={styles.todoContainer}>
-      <div className={styles.checkIcon}>
-        <Circle size={20}/>
-      </div>
+      <button className={styles.checkIcon}>
+        <Circle size={22}/>
+      </button>
       <div className={styles.description}>
         <span>{description}</span>
       </div>
-      <div className={styles.deleteIcon}>
-        <Trash size={20}/>
-      </div>
+      <button className={styles.deleteIcon}>
+        <Trash size={24}/>
+      </button>
     </div>
   )
 }

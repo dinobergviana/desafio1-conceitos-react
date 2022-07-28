@@ -26,8 +26,18 @@
   flex: 1;
 }
 
-.checkIcon {
+.checkIcon, .deleteIcon  {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  border-radius: 2px;
+}
 
+.checkIcon {
+  color: var(--blue-300);
 }
 
 .description {
@@ -35,5 +45,9 @@
 }
 
 .deleteIcon {
+  color: var(--gray-300);
 
+  display: flex;
+  align-items: center;
+  
 }
