@@ -10,6 +10,7 @@
   justify-content: space-between;
 
   margin-top: 64px;
+  margin-bottom: 1.5rem;
 }
 
 .created, .done {
@@ -33,4 +34,23 @@
   background: var(--gray-400);
   padding: 0.125rem 0.5rem;
   border-radius: 999px;
+}
+
+.alertContainer {
+  border-top: 1px solid var(--gray-400);
+  padding: 4rem 1.5rem;
+  color: var(--gray-300);
+  font-size: 1rem;
+  line-height: 1.4rem;
+}
+
+.alertContainer .alertImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alertContainer .alertText{
+  margin-top: 1rem;
+  text-align: center;
 }
