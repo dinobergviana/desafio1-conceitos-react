@@ -1,0 +1,39 @@
+.todoContainer {
+  width: 100%;
+  height: 4.5rem;
+  padding: 1rem;
+
+  /* display: grid; 
+  grid-template-columns: 1fr 10fr 1fr;
+  gap: 12; */
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+
+  border-radius: 8px;
+
+  background: var(--gray-500);
+  color: var(--gray-100);
+}
+
+.todoContainer + .todoContainer {
+  margin-top: 0.75rem;
+}
+
+.todoContainer .description {
+  flex: 1;
+}
+
+.checkIcon {
+
+}
+
+.description {
+  text-align: left;
+}
+
+.deleteIcon {
+
+}

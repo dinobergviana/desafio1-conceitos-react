@@ -6,9 +6,11 @@ import styles from './App.module.css'
 import './global.css'
 
 import clipboard from './assets/Clipboard.svg'
+import { Todo } from './components/Todo'
 
 export function App() {
   const hasTodo = true
+  const todo = "teste"
   return (
     <div>
       <Header />
@@ -25,6 +27,15 @@ export function App() {
             <span>0</span>
           </div>
         </div>
+        {/* TODOS */}
+
+        <div>
+          <Todo description="Estudar HTML e CSS"/>
+          <Todo description="Lavar a louça"/>
+          <Todo description="Tomar um café"/>
+          <Todo description="Ler o CLEAN CODE"/>
+        </div>
+
         {/* componente de alert quando não houver todos criados */}
         {
           !hasTodo && 
