@@ -1,6 +1,8 @@
-import { Circle, Trash } from 'phosphor-react'
+import { Trash } from 'phosphor-react'
 
 import styles from './Todo.module.css'
+
+import checkIcon from '../assets/check-bold.svg'
 
 interface TodoProps {
   description: string
@@ -9,9 +11,9 @@ interface TodoProps {
 export function Todo({description}: TodoProps) {
   return (
     <div className={styles.todoContainer}>
-      <button className={styles.checkIcon}>
-        <Circle size={22}/>
-      </button>
+      <div className={`${styles.checkIcon} ${styles.iconButtonchecked}`}>
+        <img src={checkIcon} />
+      </div>
       <div className={styles.description}>
         <span>{description}</span>
       </div>

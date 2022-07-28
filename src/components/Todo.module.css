@@ -38,10 +38,40 @@
 
 .checkIcon {
   color: var(--blue-300);
+
+  width: 20px;
+  height: 20px;
+
+  border: 2px solid var(--blue-300);
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkIcon img {
+  width: 12px;
+  height: 12px;
+}
+
+.checkIcon:hover {
+  border-color: var(--blue-400);
+}
+
+.iconButtonchecked {
+  background-color: var(--purple-400);
+  border-color: var(--purple-400);
+}
+
+.iconButtonchecked:hover {
+  background-color: var(--purple-300);
+  border-color: var(--purple-300);
 }
 
 .description {
   text-align: left;
+  font-size: 0.875rem;
 }
 
 .deleteIcon {
@@ -49,5 +79,16 @@
 
   display: flex;
   align-items: center;
-  
+  border-radius: 8px;
+
+  transition: background-color, color 0.2s;
+}
+
+.deleteIcon svg {
+  margin: 0.375rem 0.313rem;
+}
+
+.deleteIcon:hover {
+  background: var(--gray-400);
+  color: var(--red-500);
 }
