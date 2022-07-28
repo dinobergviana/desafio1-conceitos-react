@@ -1,4 +1,5 @@
 import { Header } from './components/Header'
+import { TodoForm } from './components/TodoForm'
 
 import styles from './App.module.css'
 
@@ -9,7 +10,7 @@ export function App() {
     <div>
       <Header />
       <div className={styles.wrapper}>
-        {/*  */}
+        <TodoForm />
       </div>
     </div>
   )
