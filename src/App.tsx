@@ -11,6 +11,18 @@ export function App() {
       <Header />
       <div className={styles.wrapper}>
         <TodoForm />
+        {/* resumo dos todos */}
+        <div className={styles.resumeContainer}>
+          <div className={styles.created}>
+            <strong>Tarefas criadas</strong>
+            <span>0</span>
+          </div>
+          <div className={styles.done}>
+            <strong>Concluidas</strong>
+            <span>0</span>
+          </div>
+        </div>
+        {/* componente de alert quando não houver todos criados */}
       </div>
     </div>
   )

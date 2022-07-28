@@ -1,4 +1,36 @@
 .wrapper {
-  max-width: 736px;
-  margin: 0 auto;
+  width: min(90vw, 736px);
+  margin: auto;
+  padding: 0 50px;
+}
+
+.resumeContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 64px;
+}
+
+.created, .done {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 0.5rem;
+}
+
+.created strong, .done  strong {
+  font-size: 0.875rem;
+  line-height: 1.59rem;
+  color: var(--purple-300);
+}
+
+.created span, .done span {
+  font-size: 0.75rem;
+  line-height: 0.908rem;
+  font-weight: bold;
+  color: var(--gray-200);
+  background: var(--gray-400);
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
 }
