@@ -7,15 +7,23 @@ import './global.css'
 
 import clipboard from './assets/Clipboard.svg'
 import { Todo } from './components/Todo'
+import { useState } from 'react'
 
 export function App() {
-  const hasTodo = true
-  const todo = "teste"
+  
+  const [todos, setTodos] = useState<string[]>([])
+
+  const hasTodo = Boolean(todos.length)
+
+  function addNewTodo(todo: string) {
+    setTodos([...todos, todo])
+  }
+
   return (
     <div>
       <Header />
       <div className={styles.wrapper}>
-        <TodoForm />
+        <TodoForm onAddNewTodo={addNewTodo} />
         {/* resumo dos todos */}
         <div className={styles.resumeContainer}>
           <div className={styles.created}>
@@ -29,12 +37,19 @@ export function App() {
         </div>
         {/* TODOS */}
 
-        <div>
-          <Todo description="Estudar HTML e CSS"/>
-          <Todo description="Lavar a louça"/>
-          <Todo description="Tomar um café"/>
-          <Todo description="Ler o CLEAN CODE"/>
-        </div>
+        {
+          hasTodo && 
+          <div>
+            {
+              todos.map(todo => {
+                return (
+                  <Todo description={todo} key={todo}/>
+                )
+              })
+            }
+          </div>          
+        }
+
 
         {/* componente de alert quando não houver todos criados */}
         {
