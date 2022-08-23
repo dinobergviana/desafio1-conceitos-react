@@ -38,7 +38,7 @@ export function App() {
         <div className={styles.resumeContainer}>
           <div className={styles.created}>
             <strong>Tarefas criadas</strong>
-            <span>0</span>
+            <span>{todos.length}</span>
           </div>
           <div className={styles.done}>
             <strong>Concluidas</strong>
