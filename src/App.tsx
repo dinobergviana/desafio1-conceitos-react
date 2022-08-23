@@ -19,10 +19,10 @@ export function App() {
 
   const hasTodo = Boolean(todos.length)
 
-  function addNewTodo(todo: string) {
+  function addNewTodo(description: string) {
     const newTodo = {
       id: uuid(),
-      description: todo,
+      description: description,
       isDone: false
     }
 
