@@ -1,22 +1,32 @@
+import { useState } from 'react'
+import {v4 as uuid} from 'uuid'
+
 import { Header } from './components/Header'
 import { TodoForm } from './components/TodoForm'
+import { Todo } from './components/Todo'
 
-import styles from './App.module.css'
-
-import './global.css'
+import { ITodo } from './components/types'
 
 import clipboard from './assets/Clipboard.svg'
-import { Todo } from './components/Todo'
-import { useState } from 'react'
+import { todosMock } from './utils/todos'
+
+import styles from './App.module.css'
+import './global.css'
 
 export function App() {
   
-  const [todos, setTodos] = useState<string[]>([])
+  const [todos, setTodos] = useState<ITodo[]>(todosMock)
 
   const hasTodo = Boolean(todos.length)
 
   function addNewTodo(todo: string) {
-    setTodos([...todos, todo])
+    const newTodo = {
+      id: uuid(),
+      description: todo,
+      isDone: false
+    }
+
+    setTodos([...todos, newTodo])
   }
 
   return (
@@ -43,7 +53,7 @@ export function App() {
             {
               todos.map(todo => {
                 return (
-                  <Todo description={todo} key={todo}/>
+                  <Todo description={todo.description} key={todo.id}/>
                 )
               })
             }

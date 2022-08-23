@@ -74,6 +74,10 @@
   font-size: 0.875rem;
 }
 
+.descriptionDone {
+  text-decoration: line-through;
+}
+
 .deleteIcon {
   color: var(--gray-300);
 

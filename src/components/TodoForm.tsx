@@ -2,13 +2,14 @@ import { PlusCircle } from 'phosphor-react'
 import { ChangeEvent, FormEvent, useState } from 'react'
 
 import styles from './TodoForm.module.css'
+import { ITodo } from './types'
 
 interface ITodoFormProps {
   onAddNewTodo: (todo: string) => void
 }
 
 export function TodoForm({onAddNewTodo}: ITodoFormProps) {
-  const [todo, setTodo] = useState('')
+  const [todo, setTodo] = useState<ITodo>()
   const [newTodo, setNewTodo] = useState('')
 
   function handleNewTodoChange(event: ChangeEvent<HTMLInputElement>) {
