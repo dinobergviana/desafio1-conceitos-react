@@ -57,7 +57,7 @@
 }
 
 .errorMessage {
-  margin: 0.5rem 0;
+  padding: 0.5rem 1rem;
   font-size: 0.8rem;
   color: var(--red-500);
 }

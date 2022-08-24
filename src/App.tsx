@@ -8,14 +8,14 @@ import { Todo } from './components/Todo'
 import { ITodo } from './components/types'
 
 import clipboard from './assets/Clipboard.svg'
-import { todosMock } from './utils/todos'
 
 import styles from './App.module.css'
 import './global.css'
 
 export function App() {
   
-  const [todos, setTodos] = useState<ITodo[]>(todosMock)
+  const [todos, setTodos] = useState<ITodo[]>([])
+  const [totalTodosDone, setTotalTodosDone] = useState(0)
 
   const hasTodo = Boolean(todos.length)
 
@@ -25,8 +25,18 @@ export function App() {
       description: description,
       isDone: false
     }
+    
+    setTodos(state =>[...state, newTodo])
+  }
 
-    setTodos([...todos, newTodo])
+  function checkTodoAsDone(id: string) {
+    todos.find(todo => {
+      if(todo.id === id) {
+        todo.isDone = !todo.isDone
+      }
+    })
+
+    setTodos((state) => [...state])
   }
 
   return (
@@ -42,7 +52,7 @@ export function App() {
           </div>
           <div className={styles.done}>
             <strong>Concluidas</strong>
-            <span>0</span>
+            <span>{totalTodosDone}</span>
           </div>
         </div>
         {/* TODOS */}
@@ -53,7 +63,7 @@ export function App() {
             {
               todos.map(todo => {
                 return (
-                  <Todo description={todo.description} key={todo.id}/>
+                  <Todo todo={todo} key={todo.id} onCheckTodoAsDone={checkTodoAsDone}/>
                 )
               })
             }

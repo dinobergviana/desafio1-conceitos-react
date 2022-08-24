@@ -4,22 +4,25 @@ import styles from './Todo.module.css'
 
 import checkIcon from '../assets/check-bold.svg'
 import { useState } from 'react';
+import { ITodo } from './types';
 
 interface TodoProps {
-  description: string;
+  todo: ITodo;
+  onCheckTodoAsDone: (id: string) => void
 }
 
-export function Todo({description}: TodoProps) {
+export function Todo({todo, onCheckTodoAsDone}: TodoProps) {
   const [isTodoDone, setIsTodoDoneDone] = useState(false);
 
-  function checkTodoAsDone(todo: string): void {
+  function handleCheckTodoAsDone(id: string) {
     setIsTodoDoneDone(!isTodoDone)
-
+    onCheckTodoAsDone(id)
   }
+
   return (
     <div className={styles.todoContainer}>
       <div
-        onClick={() => checkTodoAsDone(description)} 
+        onClick={() => handleCheckTodoAsDone(todo.id)} 
         className={`${styles.checkIcon} ${isTodoDone ? styles.iconButtonchecked : ''}`}>
         {
           isTodoDone &&
@@ -27,7 +30,7 @@ export function Todo({description}: TodoProps) {
         }
       </div>
       <div className={`${styles.description} ${isTodoDone ? styles.descriptionDone : ''}`}>
-        <span>{description}</span>
+        <span>{todo.description}</span>
       </div>
       <button className={styles.deleteIcon}>
         <Trash size={24}/>
