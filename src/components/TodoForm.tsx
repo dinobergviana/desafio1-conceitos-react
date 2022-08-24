@@ -20,7 +20,7 @@ export function TodoForm({onAddNewTodo}: ITodoFormProps) {
   function handleCreateNewTodo(event: FormEvent) {
     event.preventDefault()
 
-    if(!todoDescription) {
+    if(!todoDescription.trim()) {
       setHasError(true)
       return
     }

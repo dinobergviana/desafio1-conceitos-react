@@ -37,12 +37,26 @@ export function App() {
     })
 
     setTodos((state) => [...state])
+    calculateDoneTodos()
   }
 
   function removeTodo(id: string) {
     const todoIndex = todos.findIndex(todo => todo.id === id)
     todos.splice(todoIndex, 1)
     setTodos((state) => [...state])
+    calculateDoneTodos()
+  }
+
+  function calculateDoneTodos() {
+    let total = 0
+    
+    todos.forEach(todo => {
+      if(todo.isDone) {
+        total += 1
+      }
+    })
+
+    setTotalTodosDone(total)
   }
 
   return (
@@ -61,8 +75,6 @@ export function App() {
             <span>{totalTodosDone}</span>
           </div>
         </div>
-        {/* TODOS */}
-
         {
           hasTodo && 
           <div>
@@ -75,9 +87,6 @@ export function App() {
             }
           </div>          
         }
-
-
-        {/* componente de alert quando não houver todos criados */}
         {
           !hasTodo && 
           <div className={styles.alertContainer}>
