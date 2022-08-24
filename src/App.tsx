@@ -39,6 +39,12 @@ export function App() {
     setTodos((state) => [...state])
   }
 
+  function removeTodo(id: string) {
+    const todoIndex = todos.findIndex(todo => todo.id === id)
+    todos.splice(todoIndex, 1)
+    setTodos((state) => [...state])
+  }
+
   return (
     <div>
       <Header />
@@ -63,7 +69,7 @@ export function App() {
             {
               todos.map(todo => {
                 return (
-                  <Todo todo={todo} key={todo.id} onCheckTodoAsDone={checkTodoAsDone}/>
+                  <Todo todo={todo} key={todo.id} onCheckTodoAsDone={checkTodoAsDone} onRemoveTodo={removeTodo}/>
                 )
               })
             }

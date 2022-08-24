@@ -8,15 +8,20 @@ import { ITodo } from './types';
 
 interface TodoProps {
   todo: ITodo;
-  onCheckTodoAsDone: (id: string) => void
+  onCheckTodoAsDone: (id: string) => void;
+  onRemoveTodo: (id: string) => void;
 }
 
-export function Todo({todo, onCheckTodoAsDone}: TodoProps) {
+export function Todo({todo, onCheckTodoAsDone, onRemoveTodo}: TodoProps) {
   const [isTodoDone, setIsTodoDoneDone] = useState(false);
 
   function handleCheckTodoAsDone(id: string) {
     setIsTodoDoneDone(!isTodoDone)
     onCheckTodoAsDone(id)
+  }
+
+  function handleRemoveTodo(id: string) {
+    onRemoveTodo(id)
   }
 
   return (
@@ -32,7 +37,7 @@ export function Todo({todo, onCheckTodoAsDone}: TodoProps) {
       <div className={`${styles.description} ${isTodoDone ? styles.descriptionDone : ''}`}>
         <span>{todo.description}</span>
       </div>
-      <button className={styles.deleteIcon}>
+      <button className={styles.deleteIcon} onClick={() => handleRemoveTodo(todo.id)}>
         <Trash size={24}/>
       </button>
     </div>
